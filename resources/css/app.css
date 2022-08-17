@@ -13,8 +13,9 @@ Default yang dibuat inertia untuk import utilities tailwind css
 Component CSS: 
 Walaupun jika di ReactJS bisa langsung di import di componentnya, tapi di Inertia tidak bisa 
 */
-@import "input.css"; 
-@import "button.css"; 
+@import "input.css";
+@import "button.css";
+@import "sidebar.css";
 
 .flex::before,
 .flex::after {
