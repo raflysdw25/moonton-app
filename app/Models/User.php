@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Permission\Traits\HasRoles; //Menggunakan package Spatie untuk assign role dari user
+use Carbon\Carbon;
 
 
 class User extends Authenticatable
@@ -43,4 +45,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Supaya getIsActiveAttribute dapat dipanggil melalui Inertia React, perlu dibuat validasinya di app/Http/Middleware/HandleInertiaRequest.php method activePlan
+    public function getIsActiveAttribute()
+    {
+        if(!$this->LastActiveUserSubscription){
+            return false;
+        }
+        $dateNow = Carbon::now();
+        $dateExpired = Carbon::create($this->LastActiveUserSubscription->expired_date);
+        return $dateNow->lessThanOrEqualTo($dateExpired);
+    }
+
+    /**
+     * Get the LasActiveUserSubscription associated with the UserSubscription
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function LastActiveUserSubscription(): HasOne
+    {
+        return $this->hasOne(UserSubscription::class)->wherePaymentStatus('paid')->latest();
+    }
 }

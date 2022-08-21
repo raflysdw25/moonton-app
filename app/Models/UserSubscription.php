@@ -11,7 +11,13 @@ class UserSubscription extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['user_id', 'subscription_plan_id', 'price', 'expired_date','payment_status', 'snapToken'];
+    protected $fillable = [
+        'user_id', 
+        'subscription_plan_id', 
+        'price', 
+        'expired_date',
+        'payment_status', //pending, paid
+        'snapToken'];
 
     /**
      * Get the subscriptionPlan that owns the SubscriptionPlan
@@ -20,6 +26,7 @@ class UserSubscription extends Model
      */
     public function subscriptionPlan(): BelongsTo
     {
+        // berdasarkan subscription_plan_id
         return $this->belongsTo(SubscriptionPlan::class);
     }
 }
