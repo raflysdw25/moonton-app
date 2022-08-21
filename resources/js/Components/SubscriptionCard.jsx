@@ -99,7 +99,7 @@ export default function SubscriptionCard({
                         })}
                     </div>
 
-                    <div onClick={() => onSelectSubscription(id)}>
+                    <div onClick={onSelectSubscription}>
                         <Button type="button" variant="primary">
                             <span className="text-base font-semibold">
                                 Subscribe Now
