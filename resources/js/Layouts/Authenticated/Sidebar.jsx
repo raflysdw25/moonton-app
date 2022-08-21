@@ -35,16 +35,17 @@ export default function Sidebar({ auth }) {
                     <div>
                         <div className="text-gray-1 side-link mb-4">Others</div>
                         {/* route().current(routeName) : mendapatkan route saat ini */}
-                        {UserOthers.map((menu, index) => {
+                        {UserOthers.map((other, index) => {
                             return (
                                 <MenuItem
-                                    key={`other-${menu.text}-${index}`}
-                                    link={menu.link}
-                                    icon={menu.icon}
-                                    text={menu.text}
-                                    method={menu.method}
+                                    key={`other-${other.text}-${index}`}
+                                    link={other.link}
+                                    icon={other.icon}
+                                    text={other.text}
+                                    method={other.method}
                                     isActive={
-                                        menu.link && route().current(menu.link)
+                                        other.link &&
+                                        route().current(other.link)
                                     }
                                 />
                             );
