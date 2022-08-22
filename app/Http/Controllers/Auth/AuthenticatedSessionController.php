@@ -37,7 +37,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if(Auth::user()->hasRole('admin')){
+            return redirect(route('admin.dashboard.movie.index'));
+        }
+
+        return redirect(route('user.dashboard.index'));
+
+        // Mengarahkan ke path yang ada di RouteServiceProvider class
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

@@ -9,6 +9,7 @@ use Tightenco\Ziggy\Ziggy;
 // Helper
 use Auth;
 use Carbon\Carbon;
+use Session;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -65,6 +66,10 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
                 'activePlan' => $this->activePlan(),
+            ],
+            "flashMessage" => [
+                "message" => Session::get('message'),
+                "type" => Session::get('type')
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [

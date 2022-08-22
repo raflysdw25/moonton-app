@@ -18,7 +18,7 @@ Button.propType = {
 export default function Button({
     type = "submit",
     className = "",
-    variant,
+    variant = "primary",
     processing,
     children,
 }) {
