@@ -11,7 +11,7 @@ export default function MovieCard({ slug, name, category, thumbnail }) {
     return (
         <div className="absolute group overflow-hidden mr-[30px]">
             <img
-                src={thumbnail}
+                src={`/storage/${thumbnail}`}
                 className="object-cover rounded-[30px] h-[340px] w-[250px]"
                 alt=""
             />
@@ -27,12 +27,7 @@ export default function MovieCard({ slug, name, category, thumbnail }) {
                 className="absolute top-1/2 left-1/2 -translate-y-[500px] group-hover:-translate-y-1/2
 -translate-x-1/2 z-20 transition ease-in-out duration-500"
             >
-                <img
-                    src="../icons/ic_play.svg"
-                    className=""
-                    width="50"
-                    alt=""
-                />
+                <img src="/icons/ic_play.svg" className="" width="50" alt="" />
             </div>
             <Link
                 href={route("user.dashboard.movie.show", slug)}

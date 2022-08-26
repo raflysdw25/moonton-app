@@ -30,7 +30,7 @@ export default function Topbar({ name }) {
                         onClick={triggerDropdown}
                     >
                         <img
-                            src="../images/avatar.png"
+                            src="/images/avatar.png"
                             className="rounded-full object-cover w-full"
                             alt=""
                         />
@@ -65,7 +65,7 @@ export default function Topbar({ name }) {
             <style jsx="true">
                 {`
                     .top-search {
-                        background-image: url("../icons/ic_search.svg");
+                        background-image: url("/icons/ic_search.svg");
                     }
                 `}
             </style>
