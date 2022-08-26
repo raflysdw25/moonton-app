@@ -32,7 +32,7 @@ export default function SubscriptionCard({
                                     className="flex items-center gap-2"
                                     key={`not-premium-${index}-${id}-${feature}`}
                                 >
-                                    <img src="../icons/ic_tick.svg" alt="" />
+                                    <img src="/icons/ic_tick.svg" alt="" />
                                     <span className="text-sm">{feature}</span>
                                 </div>
                             );
@@ -51,7 +51,7 @@ export default function SubscriptionCard({
             {isPremium && (
                 <div className="flex flex-col gap-[30px] py-[30px] px-7 outline outline-1 outline-[#F1F1F1] rounded-[26px] text-white w-[300px] bg-black">
                     <div className="bg-alerange rounded-full p-[13px] max-w-max">
-                        <img src="../icons/ic_star.svg" width="24" alt="" />
+                        <img src="/icons/ic_star.svg" width="24" alt="" />
                     </div>
                     <div>
                         <div className="text-sm mb-2">{name}</div>
