@@ -21,7 +21,9 @@ use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 |
 */
 
-
+// MIDTRANS ROUTE
+// Perlu set disable csrf di Middleware/VerifyCsrfToken
+Route::post('midtrans/notification', [SubscriptionPlanController::class, 'midtransCallback']);
 
 
 Route::redirect('/', '/login');

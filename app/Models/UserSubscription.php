@@ -17,7 +17,7 @@ class UserSubscription extends Model
         'price', 
         'expired_date',
         'payment_status', //pending, paid
-        'snapToken'];
+        'snap_token'];
 
     /**
      * Get the subscriptionPlan that owns the SubscriptionPlan
